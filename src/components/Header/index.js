@@ -6,6 +6,7 @@ const Header = () => (
     style={{
       background: 'rebeccapurple',
       marginBottom: '1.45rem',
+      opacity: .5
     }}
   >
     <div
@@ -15,7 +16,7 @@ const Header = () => (
         padding: '1.45rem 1.0875rem',
       }}
     >
-      <h1 style={{ margin: 0 }}>
+      <div className="avenir" style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -25,7 +26,7 @@ const Header = () => (
         >
           Sophie Knight
         </Link>
-      </h1>
+      </div>
     </div>
   </div>
 )

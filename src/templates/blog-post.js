@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Img from 'gatsby-image';
 
 class BlogPost extends Component {
 
 renderImages(artworks) {
   return artworks.map((ele) => {
-    const imagePath = "https:"+ele.file.url
-    console.log(imagePath);
+    // const imagePath = "https:"+ele.resize.src
+    // console.log(imagePath);
     return(
-      <img src={imagePath} key={imagePath} />
+      <div className="fl w-third" key={ele.resolutions.src}>
+        <article className="mw5 mw6-ns center pt4">
+        <div className="aspect-ratio aspect-ratio--3x4 mb4">
+          <Img resolutions={ele.resolutions} className="aspect-ratio--object cover"/>
+        </div>
+        </article>
+      </div>
+
     )
   })
 }
@@ -21,7 +29,7 @@ renderImages(artworks) {
     // this.renderImages(artworks)
     return (
     <div>
-      <h1>{galleryName}</h1>
+      <div className="f1">{galleryName}</div>
       <div>
         {this.renderImages(artworks)}
       </div>
@@ -43,6 +51,14 @@ export const pageQuery = graphql`
       galleryName
       slug
       artworks {
+        resolutions (width: 200) {
+          base64
+          aspectRatio
+          width
+          height
+          src
+          srcSet
+        }
         id
         file {
           url
