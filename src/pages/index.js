@@ -4,7 +4,7 @@ import Link from 'gatsby-link'
 const BlogPost = ({node}) => {
   return (
     <li>
-      <Link to={node.slug}>{node.galleryName}</Link>
+      <Link to={node.slug} style={{textDecoration: 'none', color: 'black'}}>{node.galleryName}</Link>
     </li>
   )
 }
@@ -15,6 +15,7 @@ const IndexPage = ({data}) => (
     <ul>
       {data.allContentfulGallery.edges.map((edge) => <BlogPost node ={edge.node} key={edge.node.id}/>)}
     </ul>
+    <Link to="page-2">Page Two</Link>
   </div>
 )
 

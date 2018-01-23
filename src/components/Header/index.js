@@ -16,7 +16,7 @@ const Header = () => (
         padding: '1.45rem 1.0875rem',
       }}
     >
-      <div className="avenir" style={{ margin: 0 }}>
+      <div className="f1">
         <Link
           to="/"
           style={{
