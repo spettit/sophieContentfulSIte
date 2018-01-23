@@ -7,9 +7,9 @@ class BlogPost extends Component {
   renderImages(artworks) {
     return artworks.map((ele) => {
       return (
-        <Column fluid="fluid" sm={4} key={ele.resolutions.src}>
-          <Img resolutions={ele.resolutions} className="aspect-ratio--object cover"/>
-        </Column>)
+        <div className = "fl w-third" key={ele.resolutions.src}>
+          <Img resolutions={ele.resolutions} />
+        </div>)
     })
   }
 
@@ -19,11 +19,11 @@ class BlogPost extends Component {
     return (
       <div>
         <h2>{galleryName}</h2>
-        <Page>
-          <Row>
+        <div>
+          <div>
             {this.renderImages(artworks)}
-          </Row>
-        </Page>
+          </div>
+        </div>
       </div>);
   }
 }
@@ -40,7 +40,7 @@ export const pageQuery = graphql `
       galleryName
       slug
       artworks {
-        resolutions (width: 200) {
+        resolutions (width:200) {
           base64
           aspectRatio
           width
