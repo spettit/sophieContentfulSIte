@@ -31,14 +31,12 @@ const Title = styled.h1`
 const Navbar = () => (
       <Navstrip>
         <NavContent>
-          {/* <Title> */}
             <Link
               to="/"
               style={{textDecoration: 'none'}}
             >
               <Title>Sophie Knight RWS</Title>
             </Link>
-          {/* </Title> */}
           <NavButtons>
 
 
