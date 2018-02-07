@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
 const ContactPage = ({data}) => {
   return(
@@ -8,7 +7,5 @@ const ContactPage = ({data}) => {
     </div>
   )
 }
-
-
 
 export default ContactPage

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Sophie Knight',
   },
   plugins: [
     {resolve: 'gatsby-source-contentful',

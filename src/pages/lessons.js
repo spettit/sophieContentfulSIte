@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
 
 const LessonsPage = ({data}) => {
   return(
@@ -8,7 +7,5 @@ const LessonsPage = ({data}) => {
     </div>
   )
 }
-
-
 
 export default LessonsPage

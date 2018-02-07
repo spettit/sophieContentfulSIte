@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
-import {Page, Row, Column} from 'hedron';
 
 class Gallery extends Component {
   renderImages(artworks) {
