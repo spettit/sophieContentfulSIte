@@ -60,6 +60,13 @@ const Navbar = () => (
               Galleries
             </Link>
             <Link
+              to="/lessons"
+              style={{color: 'lightgray', textDecoration: 'none', marginRight: '40px'}}
+              activeStyle={{color: 'white'}}
+            >
+              Lessons
+            </Link>
+            <Link
               to="/contact"
               style={{color: 'lightgray', textDecoration: 'none'}}
               activeStyle={{color: 'white'}}

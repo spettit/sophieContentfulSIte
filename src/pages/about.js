@@ -27,3 +27,13 @@ export const biogQuery = graphql`
   }
   }
 `
+//  WITH REGEX
+//   allMarkdownRemark (filter: { id: {regex: "/biog/"} } ) {
+// 			edges {
+//         node {
+//           id
+//           html
+//         }
+//       }
+//   }
+// 
