@@ -1,11 +1,13 @@
 import React from 'react'
 
 const AboutPage = ({data}) => {
-  // console.log(data.contentfulArtist.biography.biography)
+  // console.log(data.allMarkdownRemark.edges[0].node.html)
   return(
     <div>
-      <h1>About Me</h1>
-      <div>{data.contentfulArtist.biography.biography}</div>
+      <h1>About Sophie</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html }} />
+      <h1>Sophie says</h1>
+      <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[1].node.html }} />
     </div>
   )
 }
@@ -15,10 +17,13 @@ export default AboutPage
 
 export const biogQuery = graphql`
   query biogQuery {
-    contentfulArtist (artist: {eq: "Sophie Knight"}) {
-    biography {
-      biography
-    }
+    allMarkdownRemark {
+			edges {
+        node {
+          id
+          html
+        }
+      }
   }
   }
 `
