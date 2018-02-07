@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import {Page, Row, Column} from 'hedron';
 
-class BlogPost extends Component {
+class Gallery extends Component {
   renderImages(artworks) {
     return artworks.map((ele) => {
       return (
@@ -28,11 +28,11 @@ class BlogPost extends Component {
   }
 }
 
-BlogPost.propTypes = {
+Gallery.propTypes = {
   data: PropTypes.object.isRequired
 }
 
-export default BlogPost;
+export default Gallery;
 
 export const pageQuery = graphql `
   query blogPostQuery($slug: String!){
