@@ -23,17 +23,22 @@ const NavButtons = styled.div`
   }
 `
 
+const Title = styled.h1`
+  margin: 0px;
+  color: white;
+`
+
 const Navbar = () => (
       <Navstrip>
         <NavContent>
-          <h1 style={{ margin: 0 }}>
+          {/* <Title> */}
             <Link
               to="/"
-              style={{color: 'white', textDecoration: 'none'}}
+              style={{textDecoration: 'none'}}
             >
-              Sophie Knight RWS
+              <Title>Sophie Knight RWS</Title>
             </Link>
-          </h1>
+          {/* </Title> */}
           <NavButtons>
 
 

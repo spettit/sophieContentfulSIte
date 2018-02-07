@@ -1,14 +1,21 @@
-import React from 'react'
+import React from 'react';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  width: 70vw;
+  margin-right: auto;
+  margin-left: auto;
+`
 
 const AboutPage = ({data}) => {
   // console.log(data.allMarkdownRemark.edges[0].node.html)
   return(
-    <div>
+    <Container>
       <h1>About Sophie</h1>
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html }} />
-      <h1>Sophie says</h1>
+      <h1>Sophie's method</h1>
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[1].node.html }} />
-    </div>
+    </Container>
   )
 }
 
@@ -36,4 +43,4 @@ export const biogQuery = graphql`
 //         }
 //       }
 //   }
-// 
+//
