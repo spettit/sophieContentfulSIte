@@ -11,9 +11,7 @@ const AboutPage = ({data}) => {
   // console.log(data.allMarkdownRemark.edges[0].node.html)
   return(
     <Container>
-      <h1>About Sophie</h1>
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html }} />
-      <h1>Sophie's method</h1>
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[1].node.html }} />
     </Container>
   )
