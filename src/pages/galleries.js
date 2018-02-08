@@ -1,21 +1,64 @@
-import React from 'react'
-import Link from 'gatsby-link'
+import React from 'react';
+import Link from 'gatsby-link';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
+
+const Container = styled.div`
+    width: 100vw;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    display: flex;
+    flex-direction: row;
+    overflow: scroll;
+
+`
+const Card = styled.div`
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 12px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-right: 0px;
+  padding-right: 30px;
+`
+
+const Label = styled.div`
+  text-align: center;
+`
+
+const Title = styled.div`
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+`
 
 const BlogPost = ({node}) => {
   return (
-    <li>
-      <Link to={node.slug} style={{textDecoration: 'none', color: 'black'}}>{node.galleryName}</Link>
-    </li>
+    <Card>
+      <Link to={node.slug} style={{textDecoration: 'none', color: 'black'}}>
+        <Img resolutions={node.coverImage.resolutions} />
+        </Link>
+        <Title>
+          {node.galleryName}
+        </Title>
+
+    </Card>
   )
 }
 
 
 const GalleriesPage = ({data}) => (
-  <div>
-    <ul>
+  <Container>
+
       {data.contentfulArtist.gallaries.map((gallaries) => <BlogPost node ={gallaries} key={gallaries.id}/>)}
-    </ul>
-  </div>
+
+  </Container>
 )
 
 export default GalleriesPage
@@ -27,9 +70,19 @@ export const galleryQuery = graphql`
       id
       galleryName
       slug
+      coverImage {
+        resolutions (width:200) {
+          base64
+          aspectRatio
+          width
+          height
+          src
+          srcSet
+        }
+      }
     }
-}
   }
+}
 `
 
 // export const galleryQuery = graphql`

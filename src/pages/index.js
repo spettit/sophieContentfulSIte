@@ -8,7 +8,7 @@ const MainImage = styled.div`
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
-  box-shadow: 4px 4px 4px gray;
+  ${'' /* box-shadow: 4px 4px 4px gray; */}
 `
 
 
