@@ -4,15 +4,19 @@ import styled from 'styled-components';
 
 const MainImage = styled.div`
   width: 70vw;
+  height: 70vh;
   margin-left: auto;
   margin-right: auto;
+  overflow: hidden;
+  box-shadow: 4px 4px 4px gray;
 `
 
 
 const HomePage = ({data}) => {
+  console.log(data.contentfulArtist.homePageImage.resolutions)
   return(
     <MainImage>
-      <img src={data.contentfulArtist.homePageImage.file.url} />
+      <Img resolutions={data.contentfulArtist.homePageImage.resolutions} style={{width:'100%'}}/>
     </MainImage>
   )
 }
@@ -28,6 +32,14 @@ export const mainImageQuery = graphql`
       homePageImage {
         file {
           url
+        }
+        resolutions (width:800) {
+          base64
+          aspectRatio
+          width
+          height
+          src
+          srcSet
         }
       }
     }
