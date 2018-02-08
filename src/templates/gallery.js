@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
+import Link from 'gatsby-link';
 
 const Container = styled.div`
 
@@ -46,7 +47,10 @@ class Gallery extends Component {
       return (
         <Card key={ele.resolutions.src}>
           <Img resolutions={ele.resolutions} />
-          <Label>{ele.title}</Label>
+          <Link to={'/'}>
+            <Label>{ele.title}</Label>
+          </Link>
+
         </Card>)
     })
   }
