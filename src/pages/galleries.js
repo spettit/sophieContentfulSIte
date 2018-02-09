@@ -37,7 +37,7 @@ const Title = styled.div`
   font-size: 20px;
 `
 
-const BlogPost = ({node}) => {
+const Gallery = ({node}) => {
   return (
     <Card>
       <Link to={node.slug} style={{textDecoration: 'none', color: 'black'}}>
@@ -46,7 +46,6 @@ const BlogPost = ({node}) => {
         <Title>
           {node.galleryName}
         </Title>
-
     </Card>
   )
 }
@@ -55,7 +54,7 @@ const BlogPost = ({node}) => {
 const GalleriesPage = ({data}) => (
   <Container>
 
-      {data.contentfulArtist.gallaries.map((gallaries) => <BlogPost node ={gallaries} key={gallaries.id}/>)}
+      {data.contentfulArtist.gallaries.map((gallaries) => <Gallery node ={gallaries} key={gallaries.id}/>)}
 
   </Container>
 )
