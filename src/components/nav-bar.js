@@ -6,6 +6,9 @@ const Navstrip = styled.div`
   margin-bottom: 1.45rem;
   background-color: rebeccapurple;
   opacity: .8;
+  @media(max-width: 400px) {
+    margin-bottom: 0px;
+  }
 `
 
 const NavContent = styled.div`
@@ -28,6 +31,9 @@ const NavButtons = styled.div`
 const Title = styled.h1`
   margin: 0px;
   color: white;
+  @media(max-width: 400px) {
+    font-size: 2rem;
+  }
 `
 
 const LinkContainer=styled.div`
@@ -35,8 +41,8 @@ const LinkContainer=styled.div`
   margin-left: 10px;
   margin-right: 10px;
   @media(max-Width: 850px) {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
   }
 `
 
