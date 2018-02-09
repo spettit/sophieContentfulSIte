@@ -3,7 +3,7 @@ import Link from 'gatsby-link';
 import styled from 'styled-components';
 
 const Navstrip = styled.div`
-  margin-bottom: 1.45rem;
+  ${'' /* margin-bottom: 1.45rem; */}
   background-color: rebeccapurple;
   opacity: .8;
   @media(max-width: 400px) {

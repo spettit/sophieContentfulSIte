@@ -3,14 +3,10 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const MainImage = styled.div`
-  width: 70vw;
-  height: 70vh;
+  width: 100vw;
+  height: 100vh;
   margin-left: auto;
   margin-right: auto;
-  @media(max-width: 400px){
-    width: 100vw;
-    height: 100vh;
-  }
   overflow: hidden;
 `
 

@@ -6,6 +6,7 @@ const Container = styled.div`
   width: 70vw;
   margin-right: auto;
   margin-left: auto;
+  margin-top: 20px;
 `
 
 const LessonPage = ({data}) => {
