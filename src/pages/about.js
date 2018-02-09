@@ -2,9 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 70vw;
-  margin-right: auto;
-  margin-left: auto;
+    width: 70vw;
+    height: 70vh;
+    margin-left: auto;
+    margin-right: auto;
+    @media(max-width: 400px){
+      width: 100vw;
+      height: 100vh;
+    }
 `
 
 const AboutPage = ({data}) => {

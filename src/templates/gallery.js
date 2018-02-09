@@ -14,6 +14,9 @@ const Container = styled.div`
   flex-direction: row;
   ${'' /* justify-content: space-around; */}
   overflow: scroll;
+  @media(max-width: 400px) {
+    padding-top: 0px;
+  }
 `
 
 const Card = styled.div`
@@ -39,6 +42,7 @@ const Title = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-top: 5px;
 `
 
 class Gallery extends Component {

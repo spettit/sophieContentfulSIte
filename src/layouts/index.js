@@ -5,14 +5,6 @@ import styled from 'styled-components'
 
 import NavBar from '../components/nav-bar';
 
-const ContentContainer = styled.div`
-  width: 70vw;
-  margin-left: auto;
-  margin-right: auto;
-  @media (max-width: 400px) {
-    width: 100vw;
-  }
-`
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -24,9 +16,9 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <NavBar />
-    <ContentContainer>
+    <div>
       {children()}
-    </ContentContainer>
+    </div>
   </div>
 )
 
