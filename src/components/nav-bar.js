@@ -15,17 +15,29 @@ const NavContent = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
+  @media (max-width: 850px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 const NavButtons = styled.div`
-  @media (max-width: 700px) {
-    display: none;
-  }
+
 `
 
 const Title = styled.h1`
   margin: 0px;
   color: white;
+`
+
+const LinkContainer=styled.div`
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  @media(max-Width: 850px) {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
 `
 
 const Navbar = () => (
@@ -39,43 +51,53 @@ const Navbar = () => (
             </Link>
           <NavButtons>
 
-
-            <Link
-              exact
-              to="/"
-              style={{color: 'lightgray', textDecoration: 'none', marginRight: '40px'}}
-              activeStyle={{color: 'white'}}
-            >
-              Home
-            </Link>
+            <LinkContainer>
+              <Link
+                exact
+                to="/"
+                style={{textDecoration: 'none', color: 'lightgray'}}
+                activeStyle={{color: 'white'}}
+              >
+                Home
+              </Link>
+            </LinkContainer>
+            <LinkContainer>
             <Link
               to="/about"
-              style={{color: 'lightgray', textDecoration: 'none', marginRight: '40px'}}
+              style={{textDecoration: 'none', color: 'lightgray'}}
               activeStyle={{color: 'white'}}
             >
               About
             </Link>
+          </LinkContainer>
+          <LinkContainer>
             <Link
               to="/galleries"
-              style={{color: 'lightgray', textDecoration: 'none', marginRight: '40px'}}
+              style={{textDecoration: 'none', color: 'lightgray'}}
               activeStyle={{color: 'white'}}
             >
               Galleries
             </Link>
+          </LinkContainer>
+          <LinkContainer>
             <Link
               to="/lessons"
-              style={{color: 'lightgray', textDecoration: 'none', marginRight: '40px'}}
+              style={{textDecoration: 'none', color: 'lightgray'}}
               activeStyle={{color: 'white'}}
             >
               Lessons
             </Link>
+          </LinkContainer>
+          <LinkContainer>
             <Link
               to="/contact"
-              style={{color: 'lightgray', textDecoration: 'none'}}
+              style={{textDecoration: 'none', color: 'lightgray'}}
               activeStyle={{color: 'white'}}
             >
               Contact
             </Link>
+          </LinkContainer>
+
 
           </NavButtons>
 
