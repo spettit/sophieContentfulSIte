@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Container = styled.div`
     width: 100vw;
     padding-bottom: 80px;
-    padding-top: 80px;
+    padding-top: 20vh;
     display: flex;
     flex-direction: row;
     overflow: scroll;
