@@ -47,10 +47,7 @@ class Gallery extends Component {
       return (
         <Card key={ele.resolutions.src}>
           <Img resolutions={ele.resolutions} />
-          <Link to={'/'}>
             <Label>{ele.title}</Label>
-          </Link>
-
         </Card>)
     })
   }
