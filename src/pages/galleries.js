@@ -4,11 +4,16 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const Container = styled.div`
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    z-index: -1;
     width: 100vw;
     padding-bottom: 80px;
     padding-top: 20vh;
     display: flex;
     flex-direction: row;
+    align-items: center;
     overflow: scroll;
 `
 const Card = styled.div`

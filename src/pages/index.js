@@ -3,11 +3,16 @@ import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const MainImage = styled.div`
+  position: absolute;
+  top:0px;
+  z-index: -1;
   width: 100vw;
   height: 100vh;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
+
+
 `
 
 

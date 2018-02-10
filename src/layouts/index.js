@@ -7,7 +7,7 @@ import NavBar from '../components/nav-bar';
 
 
 const TemplateWrapper = ({ children }) => (
-  <div>
+  <div style={{position: 'relative'}}>
     <Helmet
       title="Sophie Knight"
       meta={[

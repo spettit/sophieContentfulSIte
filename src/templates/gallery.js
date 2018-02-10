@@ -5,13 +5,17 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 const Container = styled.div`
-
-  ${'' /* background-color: lightgray; */}
+  position: absolute;
+  top: 0px;
+  z-index: -1;
+  height: 100vh;
+  ${'' /* background-color: pink; */}
   width: 100vw;
   padding-bottom: 80px;
   padding-top: 80px;
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
   ${'' /* justify-content: space-around; */}
   overflow: scroll;
   @media(max-width: 400px) {
