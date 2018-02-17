@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 const MainImage = styled.div`
   position: absolute;
+  ${'' /* background-color: pink; */}
   top:0px;
   z-index: -1;
   width: 100vw;
@@ -19,8 +20,8 @@ const MainImage = styled.div`
 const HomePage = ({data}) => {
   // console.log(data.contentfulArtist.homePageImage.resolutions)
   return(
-    <MainImage>
-      <Img sizes={data.contentfulArtist.homePageImage.sizes}/>
+    <MainImage id="mainImage">
+      <Img className="bigPic" sizes={data.contentfulArtist.homePageImage.sizes} style={{height: '100vh'}}/>
     </MainImage>
   )
 }
@@ -37,7 +38,7 @@ export const mainImageQuery = graphql`
         file {
           url
         }
-        sizes (maxWidth: 1000){
+        sizes (maxWidth: 800){
           base64
           aspectRatio
           src
