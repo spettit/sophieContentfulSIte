@@ -20,7 +20,7 @@ const HomePage = ({data}) => {
   console.log(data.contentfulArtist.homePageImage.resolutions)
   return(
     <MainImage>
-      <Img resolutions={data.contentfulArtist.homePageImage.resolutions} style={{width:'100%'}}/>
+      <Img sizes={data.contentfulArtist.homePageImage.sizes}/>
     </MainImage>
   )
 }
@@ -37,7 +37,14 @@ export const mainImageQuery = graphql`
         file {
           url
         }
-        resolutions (width:800) {
+        sizes (maxWidth: 1000){
+          base64
+          aspectRatio
+          src
+          srcSet
+          sizes
+        }
+        resolutions (height:200) {
           base64
           aspectRatio
           width
