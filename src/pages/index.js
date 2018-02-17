@@ -21,7 +21,7 @@ const HomePage = ({data}) => {
   // console.log(data.contentfulArtist.homePageImage.resolutions)
   return(
     <MainImage id="mainImage">
-      <Img className="bigPic" sizes={data.contentfulArtist.homePageImage.sizes} style={{height: '100vh'}}/>
+      <Img className="bigPic" sizes={data.contentfulArtist.homePageImage.sizes} />
     </MainImage>
   )
 }
