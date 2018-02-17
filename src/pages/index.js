@@ -17,7 +17,7 @@ const MainImage = styled.div`
 
 
 const HomePage = ({data}) => {
-  console.log(data.contentfulArtist.homePageImage.resolutions)
+  // console.log(data.contentfulArtist.homePageImage.resolutions)
   return(
     <MainImage>
       <Img sizes={data.contentfulArtist.homePageImage.sizes}/>
