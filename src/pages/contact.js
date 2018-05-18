@@ -29,8 +29,9 @@ border: none;
 
 const ContactForm = () => (
   <Form 
-    // method="post"
-    // name="contact"
+    name="contact"
+    method="POST"
+    netlify
     // data-netlify="true"
     // data-netlify-honeypot='bot-field'
     >
