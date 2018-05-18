@@ -29,10 +29,10 @@ border: none;
 
 const ContactForm = () => (
   <Form 
-    method="post"
-    name="contact"
-    data-netlify="true"
-    data-netlify-honeypot='bot-field'
+    // method="post"
+    // name="contact"
+    // data-netlify="true"
+    // data-netlify-honeypot='bot-field'
     >
       <Input name="name" type="text" placeholder="Your Name" />
       <Input name="email" type="email" placeholder="Your email address" />
