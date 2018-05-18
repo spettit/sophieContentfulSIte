@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Form = styled.form`
+const Div = styled.div`
   background-color: lightgray;
   margin-left: auto;
   margin-right: auto;
@@ -28,18 +28,21 @@ border: none;
 `
 
 const ContactForm = () => (
-  <Form 
+  <form 
     name="contact"
     // method="POST"
     netlify
     // data-netlify="true"
     // data-netlify-honeypot='bot-field'
     >
-      <Input name="name" type="text" placeholder="Your Name" />
+    <Div>
+    <Input name="name" type="text" placeholder="Your Name" />
       <Input name="email" type="email" placeholder="Your email address" />
       <textarea placeholder="Your Message" style={{height: '200px', fontSize: '16px', border: 'none', resize: 'none'}}/>
       <Button type="submit">Send</Button>
-  </Form>
+    </Div>
+      
+  </form>
 )
 
 export default ContactForm;
