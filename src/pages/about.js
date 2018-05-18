@@ -16,6 +16,7 @@ const Container = styled.div`
 
 const AboutPage = ({data}) => {
   // console.log(data.allMarkdownRemark.edges[0].node.html)
+  
   return(
     <Container>
       <Img className="profilePic" sizes={data.contentfulArtist.profilePicture.sizes} />
