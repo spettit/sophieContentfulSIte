@@ -13,13 +13,31 @@ const Form = styled.form`
   flex-direction: column;
   justify-content: space-between;
 `
+const Button = styled.button`
+background-color: rebeccapurple;
+color: white;
+font-size: 16px;
+border: none;
+width: 200px;
+align-self: flex-end;
+`
+
+const Input = styled.input`
+font-size: 16px;
+border: none;
+`
 
 const ContactForm = () => (
-  <Form>
-    <input name="name" type="text" placeholder="Your Name" style={{fontSize: '16px', border: 'none'}}/>
-    <input name="email" type="email" placeholder="Your email address" style={{fontSize: '16px', border: 'none'}}/>
-    <textarea placeholder="Your Message" style={{height: '200px', fontSize: '16px', border: 'none'}}/>
-    <button type="submit" style={{backgroundColor: 'rebeccapurple', color: 'white', fontSize: '16px', border: 'none', marginTop: '10px'}}>Send</button>
+  <Form 
+    method="post"
+    name="contact"
+    data-netlify="true"
+    data-netlify-honeypot='bot-field'
+    >
+      <Input name="name" type="text" placeholder="Your Name" />
+      <Input name="email" type="email" placeholder="Your email address" />
+      <textarea placeholder="Your Message" style={{height: '200px', fontSize: '16px', border: 'none', resize: 'none'}}/>
+      <Button type="submit">Send</Button>
   </Form>
 )
 

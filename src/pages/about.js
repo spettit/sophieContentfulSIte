@@ -1,4 +1,5 @@
 import React from 'react';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -17,6 +18,7 @@ const AboutPage = ({data}) => {
   // console.log(data.allMarkdownRemark.edges[0].node.html)
   return(
     <Container>
+      <Img className="profilePic" sizes={data.contentfulArtist.profilePicture.sizes} />
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html }} />
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[1].node.html }} />
     </Container>
@@ -35,6 +37,23 @@ export const biogQuery = graphql`
           html
         }
       }
+  }
+  contentfulArtist {
+    id
+    artist
+    profilePicture {
+      id
+      file {
+        url
+      }
+      sizes (maxWidth: 800){
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
   }
   }
 `

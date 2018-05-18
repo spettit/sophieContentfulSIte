@@ -82,7 +82,16 @@ const Navbar = () => (
               style={{textDecoration: 'none', color: 'lightgray'}}
               activeStyle={{color: 'white'}}
             >
-              Galleries
+              Work
+            </Link>
+          </LinkContainer>
+          <LinkContainer>
+            <Link
+              to="/exhibitions"
+              style={{textDecoration: 'none', color: 'lightgray'}}
+              activeStyle={{color: 'white'}}
+            >
+              Exhibitions
             </Link>
           </LinkContainer>
           <LinkContainer>
