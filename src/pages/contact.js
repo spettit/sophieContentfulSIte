@@ -36,10 +36,10 @@ const ContactForm = () => (
     // data-netlify-honeypot='bot-field'
     >
     <Div>
-    <Input name="name" type="text" placeholder="Your Name" />
-      <Input name="email" type="email" placeholder="Your email address" />
+    <input name="name" type="text" placeholder="Your Name" />
+      <input name="email" type="email" placeholder="Your email address" />
       <textarea placeholder="Your Message" style={{height: '200px', fontSize: '16px', border: 'none', resize: 'none'}}/>
-      <Button type="submit">Send</Button>
+      <button type="submit">Send</button>
     </Div>
       
   </form>
