@@ -58,7 +58,7 @@ export default class ContactForm extends React.Component {
 
   render() {
     return (
-      <div>
+      <Div>
         <h1>Contact</h1>
         <form
           name="contact"
@@ -76,7 +76,7 @@ export default class ContactForm extends React.Component {
           <p>
             <label>
               Your name:<br />
-            <input type="text" name="name" onChange={this.handleChange}/>
+            <Input type="text" name="name" onChange={this.handleChange}/>
             </label>
           </p>
           {/* <p>
@@ -92,10 +92,10 @@ export default class ContactForm extends React.Component {
             </label>
           </p>
           <p>
-            <button type="submit">Send</button>
+            <Button type="submit">Send</Button>
           </p>
         </form>
-      </div>
+      </Div>
     );
   }
 }
