@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { navigateTo } from "gatsby-link";
 
 const Div = styled.div`
   background-color: lightgray;
@@ -27,30 +28,74 @@ font-size: 16px;
 border: none;
 `
 
-const ContactForm = () => (
-  // <form 
-  //   name="contact"
-  //   method="POST"
-  //   // netlify
-  //   data-netlify="true"
-  //   // data-netlify-honeypot='bot-field'
-  //   >
-  //   <Div>
-  //   <input name="name" type="text" placeholder="Your Name" />
-  //     <input name="email" type="email" placeholder="Your email address" />
-  //     <textarea placeholder="Your Message" style={{height: '200px', fontSize: '16px', border: 'none', resize: 'none'}}/>
-  //     <button type="submit">Send</button>
-  //   </Div>
-      
-  // </form>
-  <form name="contact2" method="POST" netlify>
-  <p>
-    <label>Your Name: <input type="text" name="name" /></label>   
-  </p>
-  <p>
-    <button type="submit">Send</button>
-  </p>
-</form>
-)
+function encode(data) {
+  return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+}
 
-export default ContactForm;
+export default class ContactForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
+  handleSubmit = e => {
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ "form-name": "contact", ...this.state })
+    })
+      .then(() => navigateTo('/thanks/'))
+      .catch(error => alert(error));
+
+    e.preventDefault();
+  };
+
+  render() {
+    return (
+      <div>
+        <h1>Contact</h1>
+        <form
+          name="contact"
+          method="post"
+          action="/thanks/"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          onSubmit={this.handleSubmit}
+        >
+          <p hidden>
+            <label>
+              Don’t fill this out: <input name="bot-field" onChange={this.handleChange} />
+            </label>
+          </p>
+          <p>
+            <label>
+              Your name:<br />
+            <input type="text" name="name" onChange={this.handleChange}/>
+            </label>
+          </p>
+          {/* <p>
+            <label>
+              Your email:<br />
+              <input type="email" name="email" onChange={this.handleChange}/>
+            </label>
+          </p> */}
+          <p>
+            <label>
+              Message:<br />
+              <textarea name="message" onChange={this.handleChange}/>
+            </label>
+          </p>
+          <p>
+            <button type="submit">Send</button>
+          </p>
+        </form>
+      </div>
+    );
+  }
+}
