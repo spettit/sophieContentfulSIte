@@ -28,21 +28,29 @@ border: none;
 `
 
 const ContactForm = () => (
-  <form 
-    name="contact"
-    method="POST"
-    // netlify
-    data-netlify="true"
-    // data-netlify-honeypot='bot-field'
-    >
-    <Div>
-    <input name="name" type="text" placeholder="Your Name" />
-      <input name="email" type="email" placeholder="Your email address" />
-      <textarea placeholder="Your Message" style={{height: '200px', fontSize: '16px', border: 'none', resize: 'none'}}/>
-      <button type="submit">Send</button>
-    </Div>
+  // <form 
+  //   name="contact"
+  //   method="POST"
+  //   // netlify
+  //   data-netlify="true"
+  //   // data-netlify-honeypot='bot-field'
+  //   >
+  //   <Div>
+  //   <input name="name" type="text" placeholder="Your Name" />
+  //     <input name="email" type="email" placeholder="Your email address" />
+  //     <textarea placeholder="Your Message" style={{height: '200px', fontSize: '16px', border: 'none', resize: 'none'}}/>
+  //     <button type="submit">Send</button>
+  //   </Div>
       
-  </form>
+  // </form>
+  <form name="contact2" method="POST" netlify>
+  <p>
+    <label>Your Name: <input type="text" name="name" /></label>   
+  </p>
+  <p>
+    <button type="submit">Send</button>
+  </p>
+</form>
 )
 
 export default ContactForm;
