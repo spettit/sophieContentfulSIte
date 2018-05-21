@@ -6,7 +6,7 @@ const Div = styled.div`
   background-color: lightgray;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 40px;
+  margin-top: 150px;
   padding: 20px;
   width: 70vw;
   height: 400px;

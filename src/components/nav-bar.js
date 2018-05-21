@@ -4,6 +4,10 @@ import styled from 'styled-components';
 
 const Navstrip = styled.div`
   ${'' /* margin-bottom: 1.45rem; */}
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+  top: 0;
   background-color: black;
   opacity: .8;
   @media(max-width: 400px) {

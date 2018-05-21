@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 const Container = styled.div`
+
   width: 70vw;
   margin-right: auto;
   margin-left: auto;
-  margin-top: 20px;
+  margin-top: 150px;
 `
 
 const LessonPage = ({data}) => {
