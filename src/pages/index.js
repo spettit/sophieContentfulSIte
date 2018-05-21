@@ -12,8 +12,6 @@ const MainImage = styled.div`
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
-
-
 `
 
 

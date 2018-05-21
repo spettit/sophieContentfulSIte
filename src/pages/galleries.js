@@ -5,36 +5,38 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     position: absolute;
-    top: 0px;
-    height: 100vh;
+    top: 150px;
     z-index: -1;
     width: 100vw;
-    padding-bottom: 80px;
-    padding-top: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: flext-start;
+`
+
+const GalleriesContainer = styled.div`
+    z-index: -1;
     display: flex;
     flex-direction: row;
-    align-items: center;
-    overflow: scroll;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 70vw;
+    flex-wrap: wrap;
 `
 const Card = styled.div`
-  width: 300px;
+  width: 200px;
+  font-size: 12px;
+  margin: 5px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
-  font-size: 12px;
-  margin-bottom: 20px;
-  margin-left: 30px;
-  margin-right: 0px;
-  padding-right: 30px;
 `
 
-const Label = styled.div`
-  text-align: center;
-`
+// const Label = styled.div`
+//   text-align: center;
+// `
 
 const Title = styled.div`
-  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -47,21 +49,27 @@ const Gallery = ({node}) => {
     <Card>
       <Link to={node.slug} style={{textDecoration: 'none', color: 'black'}}>
         <Img resolutions={node.coverImage.resolutions} />
-        </Link>
+        
         <Title>
           {node.galleryName}
         </Title>
+        </Link>
     </Card>
   )
 }
 
 
 const GalleriesPage = ({data}) => (
-  <Container>
+<Container>
+  <GalleriesContainer>
+    {data.contentfulArtist.gallaries.map((gallaries) => <Gallery node ={gallaries} key={gallaries.id}/>)}
+    </GalleriesContainer>
+</Container>
+    
 
-      {data.contentfulArtist.gallaries.map((gallaries) => <Gallery node ={gallaries} key={gallaries.id}/>)}
+     
 
-  </Container>
+
 )
 
 export default GalleriesPage
