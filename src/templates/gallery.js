@@ -5,35 +5,32 @@ import styled from 'styled-components';
 import Link from 'gatsby-link';
 
 const Container = styled.div`
-  position: absolute;
-  top: 0px;
-  z-index: -1;
-  height: 100vh;
-  ${'' /* background-color: pink; */}
-  width: 100vw;
-  padding-bottom: 80px;
-  padding-top: 80px;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  ${'' /* justify-content: space-around; */}
-  overflow: scroll;
-  @media(max-width: 400px) {
-    padding-top: 0px;
-  }
+    position: absolute;
+    top: 150px;
+    z-index: -1;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flext-start;
 `
 
+const GalleriesContainer = styled.div`
+    z-index: -1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 70vw;
+    flex-wrap: wrap;
+`
 const Card = styled.div`
-  width: 300px;
+  
+  font-size: 12px;
+  margin: 5px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: center;
-  font-size: 12px;
-  margin-bottom: 20px;
-  margin-left: 30px;
-  margin-right: 30px;
-  padding-right: 30px;
 `
 
 const Label = styled.div`
@@ -41,21 +38,25 @@ const Label = styled.div`
 `
 
 const Title = styled.div`
-  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 5px;
+  font-size: 20px;
+`
+const Pic = styled.img`
+  height: 200px;
 `
 
 class Gallery extends Component {
   renderImages(artworks) {
     return artworks.map((ele) => {
       return (
-        <Card key={ele.resolutions.src}>
-          <Img resolutions={ele.resolutions} />
+        <Card key={ele.sizes.src}>
+          {/* <Img sizes={ele.sizes} style={{height: '300', width: (300*ele.aspectRatio)}}/> */}
+          <Pic src={ele.sizes.src} />
             <Label>{ele.title}</Label>
+
         </Card>)
     })
   }
@@ -70,8 +71,12 @@ class Gallery extends Component {
         </Title>
 
         <Container>
+        
+          <GalleriesContainer>
+          {this.renderImages(artworks)}
+          </GalleriesContainer>
 
-            {this.renderImages(artworks)}
+           
 
         </Container>
       </div>);
@@ -90,13 +95,12 @@ export const pageQuery = graphql `
       galleryName
       slug
       artworks {
-        resolutions (width:200) {
+        sizes (maxHeight: 300) {
           base64
           aspectRatio
-          width
-          height
           src
           srcSet
+          sizes
         }
         id
         title

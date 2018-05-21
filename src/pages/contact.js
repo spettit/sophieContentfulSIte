@@ -15,10 +15,11 @@ const Div = styled.div`
   justify-content: space-between;
 `
 const Button = styled.button`
-background-color: rebeccapurple;
+background-color: black;
 color: white;
 font-size: 16px;
 border: none;
+border-radius: 4px;
 width: 200px;
 align-self: flex-end;
 `
