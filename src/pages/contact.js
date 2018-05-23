@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 import { navigateTo } from "gatsby-link";
 
 const Div = styled.div`
@@ -13,33 +13,33 @@ const Div = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`
+`;
 const Button = styled.button`
-background-color: white;
-color: black;
-font-size: 16px;
-border: none;
-border-radius: 4px;
-width: 100px;
-align-self: flex-end;
-`
+  background-color: white;
+  color: black;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  width: 100px;
+  align-self: flex-end;
+`;
 
 const Input = styled.input`
-font-size: 16px;
-border: none;
-width: 90%;
-`
+  font-size: 16px;
+  border: none;
+  width: 90%;
+`;
 const Textarea = styled.textarea`
-border: none;
-resize: none;
-width: 90%;
-height: 7em;
-`
+  border: none;
+  resize: none;
+  width: 90%;
+  height: 7em;
+`;
 
 function encode(data) {
   return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
 }
 
 export default class ContactForm extends React.Component {
@@ -48,9 +48,9 @@ export default class ContactForm extends React.Component {
     this.state = {};
   }
 
-  handleChange = (e) => {
-    this.setState({[e.target.name]: e.target.value});
-  }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
 
   handleSubmit = e => {
     fetch("/", {
@@ -58,7 +58,7 @@ export default class ContactForm extends React.Component {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({ "form-name": "contact", ...this.state })
     })
-      .then(() => navigateTo('/thanks/'))
+      .then(() => navigateTo("/thanks/"))
       .catch(error => alert(error));
 
     e.preventDefault();
@@ -78,25 +78,26 @@ export default class ContactForm extends React.Component {
         >
           <p hidden>
             <label>
-              Don’t fill this out: <input name="bot-field" onChange={this.handleChange} />
+              Don’t fill this out:{" "}
+              <input name="bot-field" onChange={this.handleChange} />
             </label>
           </p>
           <p>
             <label>
               Your name:<br />
-            <Input type="text" name="name" onChange={this.handleChange}/>
+              <Input type="text" name="name" onChange={this.handleChange} />
             </label>
           </p>
           <p>
             <label>
               Your email:<br />
-              <Input type="email" name="email" onChange={this.handleChange}/>
+              <Input type="email" name="email" onChange={this.handleChange} />
             </label>
           </p>
           <p>
             <label>
               Message:<br />
-              <Textarea name="message" onChange={this.handleChange}/>
+              <Textarea name="message" onChange={this.handleChange} />
             </label>
           </p>
           <p>
