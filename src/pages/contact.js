@@ -9,24 +9,31 @@ const Div = styled.div`
   margin-top: 150px;
   padding: 20px;
   width: 70vw;
-  height: 400px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 `
 const Button = styled.button`
-background-color: black;
-color: white;
+background-color: white;
+color: black;
 font-size: 16px;
 border: none;
 border-radius: 4px;
-width: 200px;
+width: 100px;
 align-self: flex-end;
 `
 
 const Input = styled.input`
 font-size: 16px;
 border: none;
+width: 90%;
+`
+const Textarea = styled.textarea`
+border: none;
+resize: none;
+width: 90%;
+height: 7em;
 `
 
 function encode(data) {
@@ -60,7 +67,7 @@ export default class ContactForm extends React.Component {
   render() {
     return (
       <Div>
-        <h1>Contact</h1>
+        <h1>Contact me</h1>
         <form
           name="contact"
           method="post"
@@ -80,16 +87,16 @@ export default class ContactForm extends React.Component {
             <Input type="text" name="name" onChange={this.handleChange}/>
             </label>
           </p>
-          {/* <p>
+          <p>
             <label>
               Your email:<br />
-              <input type="email" name="email" onChange={this.handleChange}/>
+              <Input type="email" name="email" onChange={this.handleChange}/>
             </label>
-          </p> */}
+          </p>
           <p>
             <label>
               Message:<br />
-              <textarea name="message" onChange={this.handleChange}/>
+              <Textarea name="message" onChange={this.handleChange}/>
             </label>
           </p>
           <p>
