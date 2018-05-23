@@ -165,7 +165,6 @@ class Navbar extends Component {
   </Navstrip>
     )
   }
-  
 }
 
 export default Navbar;
