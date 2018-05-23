@@ -1,19 +1,18 @@
-import React from 'react';
-import Link from 'gatsby-link';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import Link from "gatsby-link";
+import styled from "styled-components";
 
 const Navstrip = styled.div`
-  ${'' /* margin-bottom: 1.45rem; */}
-  position: fixed;
+  ${"" /* margin-bottom: 1.45rem; */} position: fixed;
   width: 100vw;
   z-index: 1000;
   top: 0;
   background-color: black;
-  opacity: .8;
-  @media(max-width: 400px) {
+  opacity: 0.8;
+  @media (max-width: 400px) {
     margin-bottom: 0px;
   }
-`
+`;
 
 const NavContent = styled.div`
   margin: 0px auto;
@@ -26,105 +25,147 @@ const NavContent = styled.div`
     flex-direction: column;
     align-items: center;
   }
-`
+`;
 
-const NavButtons = styled.div`
-
-`
+const NavButtons = styled.div``;
 
 const Title = styled.h1`
   margin: 0px;
   color: white;
-  @media(max-width: 400px) {
+  @media (max-width: 400px) {
     font-size: 2rem;
   }
-`
+`;
 
-const LinkContainer=styled.div`
+const LinkContainer = styled.div`
+  position: relative;
   display: inline-block;
   margin-left: 10px;
   margin-right: 10px;
-  @media(max-Width: 850px) {
+  @media (max-width: 850px) {
     margin-left: 3px;
     margin-right: 3px;
   }
+`;
+
+const Li = styled.li`
+&:hover {color: white;}
 `
 
-const Navbar = () => (
+class Navbar extends Component {
+  state = {
+    submenu: false
+  }
+  handleClick() {
+    if(this.state.submenu) {
+      this.setState({submenu: false})
+    }
+    
+  }
+  render() {
+    return(
       <Navstrip>
-        <NavContent>
-            <Link
-              to="/"
-              style={{textDecoration: 'none'}}
+    <NavContent>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <Title>Sophie Knight RWS</Title>
+      </Link>
+      <NavButtons>
+        
+        {/* <LinkContainer>
+        
+          <Link
+            exact
+            to="/"
+            style={{ textDecoration: "none", color: "lightgray" }}
+            activeStyle={{ color: "white" }}
+          >
+          
+          Home
+          
+            
+          </Link>
+        </LinkContainer> */}
+        <LinkContainer>
+          <Link
+            to="/about"
+            style={{ textDecoration: "none", color: "lightgray" }}
+            activeStyle={{ color: "white" }}
+            onClick={this.handleClick.bind(this)}
+            onMouseEnter={() => this.setState({submenu: true})}
+            onMouseLeave={() => this.setState({submenu: false})}
+          >
+         
+          About
+            <ul
+              style={{
+                position: "absolute",
+                top: "25px",
+                left: "-30px",
+                color: "lightgray",
+                backgroundColor: "black",
+                listStyleType: "none",
+                padding: "10",
+                display: this.state.submenu ? 'block' : 'none',
+              }}
             >
-              <Title>Sophie Knight RWS</Title>
-            </Link>
-          <NavButtons>
-
-            <LinkContainer>
+              <Li>Biography</Li>
+              <Li>Method</Li>
+              <Li>Awards</Li>
               <Link
-                exact
-                to="/"
-                style={{textDecoration: 'none', color: 'lightgray'}}
-                activeStyle={{color: 'white'}}
+                to="/exhibitions"
+                style={{ textDecoration: "none", color: "lightgray" }}
+                activeStyle={{ color: "white" }}
               >
-                Home
+                <Li>Exhibitions</Li>
               </Link>
-            </LinkContainer>
-            <LinkContainer>
-            <Link
-              to="/about"
-              style={{textDecoration: 'none', color: 'lightgray'}}
-              activeStyle={{color: 'white'}}
-            >
-              About
-            </Link>
-          </LinkContainer>
-          <LinkContainer>
-            <Link
-              to="/galleries"
-              style={{textDecoration: 'none', color: 'lightgray'}}
-              activeStyle={{color: 'white'}}
-            >
-              Work
-            </Link>
-          </LinkContainer>
-          <LinkContainer>
-            <Link
-              to="/exhibitions"
-              style={{textDecoration: 'none', color: 'lightgray'}}
-              activeStyle={{color: 'white'}}
-            >
-              Exhibitions
-            </Link>
-          </LinkContainer>
-          <LinkContainer>
-            <Link
-              to="/lessons"
-              style={{textDecoration: 'none', color: 'lightgray'}}
-              activeStyle={{color: 'white'}}
-            >
-              Lessons
-            </Link>
-          </LinkContainer>
-          <LinkContainer>
-            <Link
-              to="/contact"
-              style={{textDecoration: 'none', color: 'lightgray'}}
-              activeStyle={{color: 'white'}}
-            >
-              Contact
-            </Link>
-          </LinkContainer>
-
-
-          </NavButtons>
-
-        </NavContent>
-      </Navstrip>
+              <Li>In Print</Li>
+            </ul>
+          
+            
+          </Link>
+        </LinkContainer>
+        <LinkContainer>
+          <Link
+            to="/galleries"
+            style={{ textDecoration: "none", color: "lightgray" }}
+            activeStyle={{ color: "white" }}
+          >
+            Work
+          </Link>
+        </LinkContainer>
+        {/* <LinkContainer>
+          <Link
+            to="/exhibitions"
+            style={{ textDecoration: "none", color: "lightgray" }}
+            activeStyle={{ color: "white" }}
+          >
+            Exhibitions
+          </Link>
+        </LinkContainer> */}
+        <LinkContainer>
+          <Link
+            to="/lessons"
+            style={{ textDecoration: "none", color: "lightgray" }}
+            activeStyle={{ color: "white" }}
+          >
+            Lessons
+          </Link>
+        </LinkContainer>
+        <LinkContainer>
+          <Link
+            to="/contact"
+            style={{ textDecoration: "none", color: "lightgray" }}
+            activeStyle={{ color: "white" }}
+          >
+            Contact
+          </Link>
+        </LinkContainer>
+      </NavButtons>
+    </NavContent>
+  </Navstrip>
     )
+  }
+  
+}
 
-
-
-
-export default Navbar
+export default Navbar;
