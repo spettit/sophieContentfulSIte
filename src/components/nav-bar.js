@@ -85,17 +85,20 @@ class Navbar extends Component {
             
           </Link>
         </LinkContainer> */}
-        <LinkContainer>
+        <LinkContainer
+        onClick={this.handleClick.bind(this)}
+        onMouseEnter={() => this.setState({submenu: true})}
+        onMouseLeave={() => this.setState({submenu: false})}
+        >
           <Link
             to="/about"
             style={{ textDecoration: "none", color: "lightgray" }}
             activeStyle={{ color: "white" }}
-            onClick={this.handleClick.bind(this)}
-            onMouseEnter={() => this.setState({submenu: true})}
-            onMouseLeave={() => this.setState({submenu: false})}
+            
           >
-         
           About
+         </Link>
+          
             <ul
               style={{
                 position: "absolute",
@@ -104,7 +107,7 @@ class Navbar extends Component {
                 color: "lightgray",
                 backgroundColor: "black",
                 listStyleType: "none",
-                padding: "10",
+                padding: "10px",
                 display: this.state.submenu ? 'block' : 'none',
               }}
             >
@@ -122,7 +125,7 @@ class Navbar extends Component {
             </ul>
           
             
-          </Link>
+          
         </LinkContainer>
         <LinkContainer>
           <Link
