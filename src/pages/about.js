@@ -19,7 +19,7 @@ const AboutPage = ({data}) => {
   
   return(
     <Container>
-      <Img className="profilePic" sizes={data.contentfulArtist.profilePicture.sizes} />
+      <Img className="profilePic" sizes={data.contentfulArtist.profilePicture.sizes} style={{maxWidth: 600, marginLeft: 'auto', marginRight: 'auto'}}/>
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[0].node.html }} />
       <div dangerouslySetInnerHTML={{ __html: data.allMarkdownRemark.edges[1].node.html }} />
     </Container>
@@ -47,7 +47,7 @@ export const biogQuery = graphql`
       file {
         url
       }
-      sizes (maxWidth: 800){
+      sizes (maxWidth: 600){
         base64
         aspectRatio
         src

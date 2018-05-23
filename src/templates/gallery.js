@@ -102,7 +102,7 @@ class Gallery extends Component {
           <h2>{galleryName}</h2>
         </Title>
 
-        <Container>
+        <Container style={{display: this.state.pickedWork !== "" ? "none" : "flex",}}>
           <GalleriesContainer>{this.renderImages(works)}</GalleriesContainer>
         </Container>
         <Modal
@@ -112,7 +112,6 @@ class Gallery extends Component {
             backgroundSize: 'contain',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center center'
-          
           }}
           onClick={() => this.setState({ pickedWork: "" })}
         >
