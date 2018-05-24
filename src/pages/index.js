@@ -15,13 +15,16 @@ const MainImage = styled.div`
 `
 
 
-const HomePage = ({data}) => {
+class HomePage extends React.Component {
   // console.log(data.contentfulArtist.homePageImage.resolutions)
-  return(
-    <MainImage id="mainImage">
-      <Img className="bigPic" sizes={data.contentfulArtist.homePageImage.sizes} />
-    </MainImage>
-  )
+  render() {
+    return(
+      <MainImage id="mainImage">
+        <Img className="bigPic" sizes={this.props.data.contentfulArtist.homePageImage.sizes} />
+      </MainImage>
+    )
+  }
+  
 }
 
 

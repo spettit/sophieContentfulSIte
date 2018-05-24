@@ -53,9 +53,13 @@ const Li = styled.li`
 `
 
 class Navbar extends Component {
-  state = {
-    submenu: false
+  constructor() {
+    super();
+    this.state = {
+      submenu: false
+    }
   }
+  
   handleClick() {
     if(this.state.submenu) {
       this.setState({submenu: false})
@@ -63,11 +67,12 @@ class Navbar extends Component {
     
   }
   render() {
+    console.log('name: ', this.props.data.contentfulArtist.artist)
     return(
       <Navstrip>
     <NavContent>
       <Link to="/" style={{ textDecoration: "none" }}>
-        <Title>Sophie Knight RWS</Title>
+        <Title>{this.props.data.contentfulArtist.artist}</Title>
       </Link>
       <NavButtons>
         
@@ -171,3 +176,5 @@ class Navbar extends Component {
 }
 
 export default Navbar;
+
+

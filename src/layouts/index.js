@@ -7,7 +7,7 @@ import './styles.css'
 import NavBar from '../components/nav-bar';
 
 
-const TemplateWrapper = ({ children }) => (
+const TemplateWrapper = ({ children, data }) => (
   <div style={{position: 'relative'}}>
     <Helmet
       title="Sophie Knight"
@@ -16,7 +16,7 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <NavBar />
+    <NavBar data = {data}/>
     <div>
       {children()}
     </div>
@@ -28,3 +28,11 @@ TemplateWrapper.propTypes = {
 }
 
 export default TemplateWrapper
+
+export const artistNameQuery = graphql`
+  query artistNameQuery {
+    contentfulArtist (artist: {eq: "Sophie Knight"}) {
+      artist
+    }
+  }
+`
