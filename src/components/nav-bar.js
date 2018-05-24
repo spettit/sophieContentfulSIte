@@ -67,7 +67,6 @@ class Navbar extends Component {
     
   }
   render() {
-    console.log('name: ', this.props.data.contentfulArtist.artist)
     return(
       <Navstrip>
     <NavContent>
