@@ -14,7 +14,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       graphql(`
         {
           contentfulArtist {
-            gallaries {
+            galleries {
               id
               slug
             }
@@ -24,7 +24,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         if (result.errors) {
           reject(result.errors);
         }
-        result.data.contentfulArtist.gallaries.forEach(gallery => {
+        result.data.contentfulArtist.galleries.forEach(gallery => {
           createPage({
             path: gallery.slug,
             component: galleryTemplate,

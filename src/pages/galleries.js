@@ -77,7 +77,7 @@ const GalleriesPage = ({data}) => (
         </Title>
         </TopDiv>
   <GalleriesContainer>
-    {data.contentfulArtist.gallaries.map((gallaries) => <Gallery node ={gallaries} key={gallaries.id}/>)}
+    {data.contentfulArtist.galleries.map((galleries) => <Gallery node ={galleries} key={galleries.id}/>)}
     </GalleriesContainer>
 </Container>
     
@@ -91,8 +91,8 @@ export default GalleriesPage
 
 export const galleryQuery = graphql`
   query galleryQuery {
-    contentfulArtist (artist: {eq: "Sophie Knight"}) {
-    gallaries {
+    contentfulArtist (name: {eq: "Sophie Knight"}) {
+    galleries {
       id
       galleryName
       slug

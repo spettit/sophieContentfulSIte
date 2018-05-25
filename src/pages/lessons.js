@@ -35,7 +35,7 @@ export default LessonPage
 
 export const lessonQuery = graphql`
 query artistQuery {
-  contentfulArtist(artist: {eq: "Sophie Knight"}) {
+  contentfulArtist(name: {eq: "Sophie Knight"}) {
     profilePicture2 {
       file {
         url
@@ -50,7 +50,6 @@ query artistQuery {
         contentType
       }
     }
-    artist
     
 		childContentfulArtistLessonsTextNode {
       childMarkdownRemark {
