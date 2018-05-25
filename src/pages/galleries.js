@@ -5,12 +5,19 @@ import styled from 'styled-components';
 
 const Container = styled.div`
     position: absolute;
-    top: 150px;
+    // top: 150px;
     z-index: -1;
     width: 100vw;
     display: flex;
-    justify-content: center;
-    align-items: flext-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+`
+const TopDiv = styled.div`
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 `
 
 const GalleriesContainer = styled.div`
@@ -23,14 +30,17 @@ const GalleriesContainer = styled.div`
     flex-wrap: wrap;
 `
 const Card = styled.div`
-  width: 200px;
   font-size: 12px;
   margin: 5px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-`
+`;
+
+const Pic = styled.img`
+  height: 200px;
+`;
 
 // const Label = styled.div`
 //   text-align: center;
@@ -48,7 +58,7 @@ const Gallery = ({node}) => {
   return (
     <Card>
       <Link to={node.slug} style={{textDecoration: 'none', color: 'black'}}>
-        <Img resolutions={node.coverImage.resolutions} />
+      <Pic src={node.coverImage.sizes.src} />
         
         <Title>
           {node.galleryName}
@@ -61,8 +71,13 @@ const Gallery = ({node}) => {
 
 const GalleriesPage = ({data}) => (
 <Container>
+<TopDiv>
+        <Title>
+          <h2>Galleries</h2>
+        </Title>
+        </TopDiv>
   <GalleriesContainer>
-    {data.contentfulArtist.gallaries.map((gallaries) => <Gallery node ={gallaries} key={gallaries.id}/>)}
+    {data.contentfulArtist.galleries.map((galleries) => <Gallery node ={galleries} key={galleries.id}/>)}
     </GalleriesContainer>
 </Container>
     
@@ -76,19 +91,23 @@ export default GalleriesPage
 
 export const galleryQuery = graphql`
   query galleryQuery {
-    contentfulArtist (artist: {eq: "Sophie Knight"}) {
-    gallaries {
+    contentfulArtist (name: {eq: "Sophie Knight"}) {
+    galleries {
       id
       galleryName
       slug
       coverImage {
-        resolutions (width:200) {
+        sizes(maxHeight: 300) {
           base64
           aspectRatio
-          width
-          height
           src
           srcSet
+          sizes
+        }
+        id
+        title
+        file {
+          url
         }
       }
     }

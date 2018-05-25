@@ -33,8 +33,8 @@ export default HomePage
 
 export const mainImageQuery = graphql`
   query mainImageQuery {
-    contentfulArtist (artist: {eq: "Sophie Knight"}) {
-      artist
+    contentfulArtist (name: {eq: "Sophie Knight"}) {
+      name
       homePageImage {
         file {
           url

@@ -5,8 +5,8 @@ module.exports = {
   plugins: [
     {resolve: 'gatsby-source-contentful',
     options: {
-      spaceId: '8w4mzywabmjc',
-      accessToken: '92e61a45c7d7a2df9d193f7bd76cbd30b52c136ca158adb4787038c36bf26424'
+      spaceId: 'y3imyxpski9z',
+      accessToken: 'd83858a028c21fa9b0d315db2fd4ba26450be9b00dab36f1b29c638d5f25df3c'
     }
   },
     'gatsby-plugin-react-helmet',

@@ -71,7 +71,7 @@ class Navbar extends Component {
       <Navstrip>
     <NavContent>
       <Link to="/" style={{ textDecoration: "none" }}>
-        <Title>{this.props.data.contentfulArtist.artist}</Title>
+        <Title>{this.props.data.contentfulArtist.name}</Title>
       </Link>
       <NavButtons>
         

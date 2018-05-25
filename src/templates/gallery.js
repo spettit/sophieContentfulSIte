@@ -6,7 +6,7 @@ import Link from "gatsby-link";
 
 const Container = styled.div`
   position: absolute;
-  top: 150px;
+  // top: 250px;
   z-index: -1;
   width: 100vw;
   display: flex;
@@ -45,6 +45,7 @@ const Title = styled.div`
 `;
 const Pic = styled.img`
   height: 200px;
+  cursor: zoom-in;
 `;
 
 const Modal = styled.div`
@@ -55,12 +56,22 @@ const Modal = styled.div`
   background-color: black;
   z-index: 100000;
   display: flex;
+  cursor: zoom-out;
 `;
 
-const ModalImg = styled.img`
- width: 100%;
- height: auto;
+const TopDiv = styled.div`
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 `
+
+// const ModalImg = styled.img`
+//  width: 100%;
+//  height: auto;
+ 
+// `
 
 class Gallery extends Component {
   constructor() {
@@ -98,13 +109,21 @@ class Gallery extends Component {
     const { works } = this.props.data.contentfulGallery;
     return (
       <div>
+        <TopDiv>
+        <Link to={"/galleries"}>back to Galleries</Link>
         <Title>
+          
           <h2>{galleryName}</h2>
+          
         </Title>
+        
+        </TopDiv>
+        
 
         <Container style={{display: this.state.pickedWork !== "" ? "none" : "flex",}}>
           <GalleriesContainer>{this.renderImages(works)}</GalleriesContainer>
         </Container>
+        
         <Modal
           style={{ 
             display: this.state.pickedWork === "" ? "none" : "flex",
@@ -120,6 +139,7 @@ class Gallery extends Component {
 
           
         </Modal>
+        
       </div>
     );
   }

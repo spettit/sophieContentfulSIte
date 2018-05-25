@@ -21,7 +21,7 @@ const AboutPage = ({ data }) => {
     <Container>
       <Img
         className="profilePic"
-        sizes={data.contentfulArtist.profilePicture.sizes}
+        sizes={data.contentfulArtist.profilePicture1.sizes}
         style={{ maxWidth: 600, marginLeft: "auto", marginRight: "auto" }}
       />
       <br />
@@ -65,8 +65,8 @@ export const biogQuery = graphql`
   query biogQuery {
     contentfulArtist {
       id
-      artist
-      profilePicture {
+      name
+      profilePicture1 {
         id
         file {
           url

@@ -31,8 +31,8 @@ export default TemplateWrapper
 
 export const artistNameQuery = graphql`
   query artistNameQuery {
-    contentfulArtist (artist: {eq: "Sophie Knight"}) {
-      artist
+    contentfulArtist (name: {eq: "Sophie Knight"}) {
+      name
     }
   }
 `
