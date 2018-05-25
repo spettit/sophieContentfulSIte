@@ -24,14 +24,35 @@ const AboutPage = ({ data }) => {
         sizes={data.contentfulArtist.profilePicture.sizes}
         style={{ maxWidth: 600, marginLeft: "auto", marginRight: "auto" }}
       />
-      <div
+      <br />
+      <div id="bio"
         dangerouslySetInnerHTML={{
-          __html: data.allMarkdownRemark.edges[0].node.html
+          // __html: data.allMarkdownRemark.edges[0].node.html
+          __html: data.contentfulArtist.childContentfulArtistBiographyTextNode.childMarkdownRemark.html
         }}
       />
-      <div
+      <br />
+      <div id = "method"
         dangerouslySetInnerHTML={{
-          __html: data.allMarkdownRemark.edges[1].node.html
+          __html: data.contentfulArtist.childContentfulArtistStatementTextNode.childMarkdownRemark.html
+        }}
+      />
+      <br />
+      <div id = "exhibitions"
+        dangerouslySetInnerHTML={{
+          __html: data.contentfulArtist.childContentfulArtistExhibitionsTextNode.childMarkdownRemark.html
+        }}
+      />
+      <br />
+      <div id = "cv"
+        dangerouslySetInnerHTML={{
+          __html: data.contentfulArtist.childContentfulArtistCvTextNode.childMarkdownRemark.html
+        }}
+      />
+      <br />
+      <div id = "links"
+        dangerouslySetInnerHTML={{
+          __html: data.contentfulArtist.childContentfulArtistLinksTextNode.childMarkdownRemark.html
         }}
       />
     </Container>
@@ -42,14 +63,6 @@ export default AboutPage;
 
 export const biogQuery = graphql`
   query biogQuery {
-    allMarkdownRemark {
-      edges {
-        node {
-          id
-          html
-        }
-      }
-    }
     contentfulArtist {
       id
       artist
@@ -66,16 +79,31 @@ export const biogQuery = graphql`
           sizes
         }
       }
+      childContentfulArtistBiographyTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      childContentfulArtistStatementTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      childContentfulArtistExhibitionsTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      childContentfulArtistCvTextNode {
+        childMarkdownRemark {
+          html
+        }
+      }
+      childContentfulArtistLinksTextNode {
+      childMarkdownRemark {
+        html
+      }
     }
   }
+}
 `;
-//  WITH REGEX
-//   allMarkdownRemark (filter: { id: {regex: "/biog/"} } ) {
-// 			edges {
-//         node {
-//           id
-//           html
-//         }
-//       }
-//   }
-//
