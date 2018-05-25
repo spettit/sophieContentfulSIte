@@ -67,7 +67,7 @@ export default class ContactForm extends React.Component {
   render() {
     return (
       <Div>
-        <h1>Contact me</h1>
+        <h1>Contact Sophie</h1>
         <form
           name="contact"
           method="post"

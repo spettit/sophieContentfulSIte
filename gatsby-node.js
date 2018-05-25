@@ -13,12 +13,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
     resolve(
       graphql(`
         {
-          allContentfulGallery(limit: 100) {
-            edges {
-              node {
-                id
-                slug
-              }
+          contentfulArtist {
+            gallaries {
+              id
+              slug
             }
           }
         }
@@ -26,12 +24,12 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         if (result.errors) {
           reject(result.errors);
         }
-        result.data.allContentfulGallery.edges.forEach(edge => {
+        result.data.contentfulArtist.gallaries.forEach(gallery => {
           createPage({
-            path: edge.node.slug,
+            path: gallery.slug,
             component: galleryTemplate,
             context: {
-              slug: edge.node.slug
+              slug: gallery.slug
             }
           });
         });
