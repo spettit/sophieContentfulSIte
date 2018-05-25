@@ -103,7 +103,7 @@ class Navbar extends Component {
           About
          </Link>
           
-            <ul
+            {/* <ul
               style={{
                 position: "absolute",
                 top: "25px",
@@ -115,18 +115,29 @@ class Navbar extends Component {
                 display: this.state.submenu ? 'block' : 'none',
               }}
             >
+              <Link 
+                to="/about#bio"
+                style={{ textDecoration: "none", color: "lightgray" }}
+                activeStyle={{ color: "white" }}>
               <Li>Biography</Li>
+              </Link>
+              <Link 
+                to="/about#method"
+                style={{ textDecoration: "none", color: "lightgray" }}
+                activeStyle={{ color: "white" }}>
               <Li>Method</Li>
+              </Link>
+              
               <Li>Awards</Li>
               <Link
-                to="/exhibitions"
+                to="/about#exhibitions"
                 style={{ textDecoration: "none", color: "lightgray" }}
                 activeStyle={{ color: "white" }}
               >
                 <Li>Exhibitions</Li>
               </Link>
               <Li>In Print</Li>
-            </ul>
+            </ul> */}
           
             
           
