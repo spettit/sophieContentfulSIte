@@ -53,15 +53,21 @@ export default class ContactForm extends React.Component {
   };
 
   handleSubmit = e => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...this.state })
-    })
-      .then(() => navigateTo("/thanks/"))
-      .catch(error => alert(error));
-
     e.preventDefault();
+    if(!this.state.name || !this.state.email || !this.state.message){
+      alert('please enter your name, email address and a message')
+    }else{
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...this.state })
+      })
+        .then(() => navigateTo("/thanks/"))
+        .catch(error => alert(error));
+  
+      
+    }
+    
   };
 
   render() {
@@ -85,19 +91,19 @@ export default class ContactForm extends React.Component {
           <p>
             <label>
               Your name:<br />
-              <Input type="text" name="name" onChange={this.handleChange} />
+              <Input type="text" name="name" value={this.state.name} onChange={this.handleChange} />
             </label>
           </p>
           <p>
             <label>
               Your email:<br />
-              <Input type="email" name="email" onChange={this.handleChange} />
+              <Input type="email" name="email" value={this.state.email} onChange={this.handleChange} />
             </label>
           </p>
           <p>
             <label>
               Message:<br />
-              <Textarea name="message" onChange={this.handleChange} />
+              <Textarea name="message" value={this.state.message} onChange={this.handleChange} />
             </label>
           </p>
           <p>
