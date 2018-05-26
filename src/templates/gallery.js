@@ -45,6 +45,7 @@ const Title = styled.div`
 `;
 const Pic = styled.img`
   height: 200px;
+  width: auto;
   cursor: zoom-in;
 `;
 
@@ -93,11 +94,14 @@ class Gallery extends Component {
           onClick={() => this.handleClick(ele.image.file.url)}
         >
           {/* <Img sizes={ele.sizes} style={{height: '300', width: (300*ele.aspectRatio)}}/> */}
+          <div style={{display: 'flex', justifyContent: 'center'}}>
           <Pic src={ele.image.sizes.src} />
+          </div>
+          
           <Label>{ele.title}</Label>
           <Label>{ele.medium}</Label>
           <Label>
-            {ele.width}cm {ele.height}cm
+            {ele.width ? `${ele.width}cm x ${ele.height}cm` : '-'}
           </Label>
         </Card>
       );
