@@ -58,8 +58,9 @@ const Gallery = ({node}) => {
   return (
     <Card>
       <Link to={node.slug} style={{textDecoration: 'none', color: 'black'}}>
+      <div style={{display: 'flex', justifyContent: 'center'}}>
       <Pic src={node.coverImage.sizes.src} />
-        
+        </div>
         <Title>
           {node.galleryName}
         </Title>
