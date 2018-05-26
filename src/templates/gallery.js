@@ -24,9 +24,10 @@ const GalleriesContainer = styled.div`
   flex-wrap: wrap;
 `;
 const Card = styled.div`
+  max-width: 300px;
   font-size: 12px;
   margin: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -97,12 +98,14 @@ class Gallery extends Component {
           <div style={{display: 'flex', justifyContent: 'center'}}>
           <Pic src={ele.image.sizes.src} />
           </div>
-          
+          <div style={{height: '30px'}}>
           <Label>{ele.title}</Label>
           <Label>{ele.medium}</Label>
           <Label>
             {ele.width ? `${ele.width}cm x ${ele.height}cm` : '-'}
           </Label>
+          </div>
+          
         </Card>
       );
     });
