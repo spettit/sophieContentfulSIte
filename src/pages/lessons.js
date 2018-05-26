@@ -20,8 +20,8 @@ const LessonPage = ({data}) => {
     <Container>
       <ImageDiv>
       <img src={data.contentfulArtist.profilePicture2.file.url} />
-      <div style={{width: '10px'}}></div>
-      <img src={data.contentfulArtist.profilePicture3.file.url} />
+      {/* <div style={{width: '10px'}}></div>
+      <img src={data.contentfulArtist.profilePicture3.file.url} /> */}
       </ImageDiv>
       
       <div dangerouslySetInnerHTML={{ __html: data.contentfulArtist.childContentfulArtistLessonsTextNode.childMarkdownRemark.html}} />
