@@ -10,10 +10,11 @@ import NavBar from '../components/nav-bar';
 const TemplateWrapper = ({ children, data }) => (
   <div style={{position: 'relative'}}>
     <Helmet
-      title="Sophie Knight"
+      title="Sophie Knight, Artist"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
+        // { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+        { name: 'description', content: 'Sophie Knight is an artist, a watercolor painter and a teacher' },
+        { name: 'keywords', content: 'artist,watercolor,watercolour,painter,royal watercolour society' },
       ]}
     />
     <NavBar data = {data}/>
