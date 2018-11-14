@@ -1,13 +1,18 @@
 import React from 'react'
 
-const NotFoundPage = () => (
+const NotFoundPage = () => {
+  if (typeof window !== 'undefined') {
+    window.location = '/';
+  }
+  
+
+  return null;
+}
   // <div>
   //   <h1>NOT FOUND</h1>
   //   <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
   // </div>
-  window.location = '/';
+  
 
-  return null;
-)
 
 export default NotFoundPage
