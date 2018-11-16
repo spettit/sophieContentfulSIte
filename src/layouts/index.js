@@ -15,6 +15,7 @@ const TemplateWrapper = ({ children, data }) => (
         // { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
         { name: 'description', content: 'Sophie Knight is an artist, a watercolor painter and a teacher' },
         { name: 'keywords', content: 'artist,watercolor,watercolour,painter,royal watercolour society' },
+        { name: 'google-site-verification', content: 'H9a951ASx4cXGPR8iGHhXqh4MkUWUvlybKxz8Qwq5HE' },
       ]}
     />
     <NavBar data = {data}/>
