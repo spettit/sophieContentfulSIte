@@ -106,6 +106,7 @@ export default class ContactForm extends React.Component {
               <Textarea name="message" value={this.state.message} onChange={this.handleChange} />
             </label>
           </p>
+          <div data-netlify-recaptcha></div>
           <p>
             <Button type="submit">Send</Button>
           </p>
